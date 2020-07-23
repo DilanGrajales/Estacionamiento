@@ -755,7 +755,7 @@ public class registro extends javax.swing.JFrame implements ActionListener{
             mes=9900;
             total=dia+semana+mes;
             totalreg.setText(""+total);
-            fmes=150;
+            fmes=180;
             ftotal=fdia+fsemana+fmes;
             LocalDate fecha = LocalDate.now();
             LocalDate newDate = fecha.plusDays(ftotal);
