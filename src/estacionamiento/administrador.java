@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -48,6 +49,10 @@ public class administrador extends javax.swing.JFrame implements ActionListener{
         
         regresarBtn.addActionListener(this);
         totaladmin.setEditable(false);
+        
+        Calendar fecha1 = new GregorianCalendar();
+        getreportedia.setCalendar(fecha1);
+        getreportemes.setCalendar(fecha1);
         
     }
 
