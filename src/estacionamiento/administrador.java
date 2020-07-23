@@ -250,138 +250,145 @@ public class administrador extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_regresarBtnActionPerformed
 
     private void repDiarioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repDiarioBtnActionPerformed
+        if (getreportedia.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "No seleccionó un DIA", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        } else {
             try {
-            SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
-            String fecha=formateador.format(getreportedia.getDate());
-            
-            
-            DefaultTableModel modelo = new DefaultTableModel();
-            tabladatos.setModel(modelo);
+                SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+                String fecha=formateador.format(getreportedia.getDate());
 
-            conn.conexion();
-            Statement stmt = conn.con.createStatement();
-            ResultSet rs = stmt.executeQuery("select id_cli, fecha_entrada, hora_entrada, fecha_salida, hora_salida, id_placa, posicion, cantidad_pagar from concepto_pago where fecha_entrada='"+fecha+"' ");
 
-            ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
-            int cantidadColumnas = rsMd.getColumnCount();
+                DefaultTableModel modelo = new DefaultTableModel();
+                tabladatos.setModel(modelo);
 
-            modelo.addColumn("id_cli");
-            modelo.addColumn("fecha_entrada");
-            modelo.addColumn("hora_entrada");
-            modelo.addColumn("fecha_salida");
-            modelo.addColumn("hora_salida");
-            modelo.addColumn("id_placa");
-            modelo.addColumn("posicion");
-            modelo.addColumn("cantidad_pagar");
-            
-            
-            int[] anchos = {5, 25, 25, 25, 25, 25, 5, 20};
-            for (int i = 0; i < tabladatos.getColumnCount(); i++) {
-                tabladatos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-            }
+                conn.conexion();
+                Statement stmt = conn.con.createStatement();
+                ResultSet rs = stmt.executeQuery("select id_cli, fecha_entrada, hora_entrada, fecha_salida, hora_salida, id_placa, posicion, cantidad_pagar from concepto_pago where fecha_entrada='"+fecha+"' ");
 
-            while (rs.next()) {
-                Object[] filas = new Object[cantidadColumnas];
-                for (int i = 0; i < cantidadColumnas; i++) {
-                    filas[i] = rs.getObject(i + 1);
-                    
+                ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
+                int cantidadColumnas = rsMd.getColumnCount();
+
+                modelo.addColumn("id_cli");
+                modelo.addColumn("fecha_entrada");
+                modelo.addColumn("hora_entrada");
+                modelo.addColumn("fecha_salida");
+                modelo.addColumn("hora_salida");
+                modelo.addColumn("id_placa");
+                modelo.addColumn("posicion");
+                modelo.addColumn("cantidad_pagar");
+
+
+                int[] anchos = {5, 25, 25, 25, 25, 25, 5, 20};
+                for (int i = 0; i < tabladatos.getColumnCount(); i++) {
+                    tabladatos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
                 }
-                modelo.addRow(filas);
-                
-            }
-            
 
-        } catch(Exception e) {System.out.println(e);
-        }System.out.println("consullta del dia");
-        
-        
-        try {
-            pagosuma=0;
-            SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
-            String fecha=formateador.format(getreportedia.getDate());
-            
-            conn.conexion();
-            Statement stmt = conn.con.createStatement();
-            ResultSet rs = stmt.executeQuery("select cantidad_pagar from concepto_pago where fecha_entrada='"+fecha+"'");
-            while (rs.next()) {
-                pagosuma=pagosuma + rs.getInt("cantidad_pagar");
-            }
-            stmt.close();
-            rs.close();
-            conn.con.close();
-        } catch (Exception e) { System.out.println(e); }
-        
-        
-        totaladmin.setText(""+pagosuma);
+                while (rs.next()) {
+                    Object[] filas = new Object[cantidadColumnas];
+                    for (int i = 0; i < cantidadColumnas; i++) {
+                        filas[i] = rs.getObject(i + 1);
+
+                    }
+                    modelo.addRow(filas);
+
+                }
+
+
+            } catch(Exception e) {System.out.println(e);
+            }System.out.println("consullta del dia");
+
+
+            try {
+                pagosuma=0;
+                SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+                String fecha=formateador.format(getreportedia.getDate());
+
+                conn.conexion();
+                Statement stmt = conn.con.createStatement();
+                ResultSet rs = stmt.executeQuery("select cantidad_pagar from concepto_pago where fecha_entrada='"+fecha+"'");
+                while (rs.next()) {
+                    pagosuma=pagosuma + rs.getInt("cantidad_pagar");
+                }
+                stmt.close();
+                rs.close();
+                conn.con.close();
+            } catch (Exception e) { System.out.println(e); }
+
+
+            totaladmin.setText(""+pagosuma);
+        }
     }//GEN-LAST:event_repDiarioBtnActionPerformed
 
     private void repMensBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repMensBtnActionPerformed
+        if (getreportedia.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "No seleccionó un DIA", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        } else {
         
-        
-        try {
-            SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM");
-            String mes=formateador.format(getreportemes.getDate());
-            
-            System.out.println(mes);
-            
-            
-            DefaultTableModel modelo = new DefaultTableModel();
-            tabladatos.setModel(modelo);
+            try {
+                SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM");
+                String mes=formateador.format(getreportemes.getDate());
 
-            conn.conexion();
-            Statement stmt = conn.con.createStatement();
-            ResultSet rs = stmt.executeQuery("select id_cli, fecha_entrada, hora_entrada, fecha_salida, hora_salida, id_placa, posicion, cantidad_pagar from concepto_pago where fecha_entrada between '"+mes+"-01' and '"+mes+"-30' ");
+                System.out.println(mes);
 
-            ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
-            int cantidadColumnas = rsMd.getColumnCount();
 
-            modelo.addColumn("id_cli");
-            modelo.addColumn("fecha_entrada");
-            modelo.addColumn("hora_entrada");
-            modelo.addColumn("fecha_salida");
-            modelo.addColumn("hora_salida");
-            modelo.addColumn("id_placa");
-            modelo.addColumn("posicion");
-            modelo.addColumn("cantidad_pagar");
-            
-            
-            int[] anchos = {5, 25, 25, 25, 25, 25, 5, 20};
-            for (int i = 0; i < tabladatos.getColumnCount(); i++) {
-                tabladatos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-            }
+                DefaultTableModel modelo = new DefaultTableModel();
+                tabladatos.setModel(modelo);
 
-            while (rs.next()) {
-                Object[] filas = new Object[cantidadColumnas];
-                for (int i = 0; i < cantidadColumnas; i++) {
-                    filas[i] = rs.getObject(i + 1);
-                    
+                conn.conexion();
+                Statement stmt = conn.con.createStatement();
+                ResultSet rs = stmt.executeQuery("select id_cli, fecha_entrada, hora_entrada, fecha_salida, hora_salida, id_placa, posicion, cantidad_pagar from concepto_pago where fecha_entrada between '"+mes+"-01' and '"+mes+"-30' ");
+
+                ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
+                int cantidadColumnas = rsMd.getColumnCount();
+
+                modelo.addColumn("id_cli");
+                modelo.addColumn("fecha_entrada");
+                modelo.addColumn("hora_entrada");
+                modelo.addColumn("fecha_salida");
+                modelo.addColumn("hora_salida");
+                modelo.addColumn("id_placa");
+                modelo.addColumn("posicion");
+                modelo.addColumn("cantidad_pagar");
+
+
+                int[] anchos = {5, 25, 25, 25, 25, 25, 5, 20};
+                for (int i = 0; i < tabladatos.getColumnCount(); i++) {
+                    tabladatos.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
                 }
-                modelo.addRow(filas);
-                
-            }
-            
 
-        } catch(Exception e) {System.out.println(e);
-        }System.out.println("consullta del mes");
-        
-        try {
-            pagosuma=0;
-            SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM");
-            String mes=formateador.format(getreportemes.getDate());
-            
-            conn.conexion();
-            Statement stmt = conn.con.createStatement();
-            ResultSet rs = stmt.executeQuery("select cantidad_pagar from concepto_pago where fecha_entrada  between '"+mes+"-01' and '"+mes+"-30'");
-            while (rs.next()) {
-                pagosuma=pagosuma + rs.getInt("cantidad_pagar");
-            }
-            stmt.close();
-            rs.close();
-            conn.con.close();
-        } catch (Exception e) { System.out.println(e); }
-        
-        
-        totaladmin.setText(""+pagosuma);
+                while (rs.next()) {
+                    Object[] filas = new Object[cantidadColumnas];
+                    for (int i = 0; i < cantidadColumnas; i++) {
+                        filas[i] = rs.getObject(i + 1);
+
+                    }
+                    modelo.addRow(filas);
+
+                }
+
+
+            } catch(Exception e) {System.out.println(e);
+            }System.out.println("consullta del mes");
+
+            try {
+                pagosuma=0;
+                SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM");
+                String mes=formateador.format(getreportemes.getDate());
+
+                conn.conexion();
+                Statement stmt = conn.con.createStatement();
+                ResultSet rs = stmt.executeQuery("select cantidad_pagar from concepto_pago where fecha_entrada  between '"+mes+"-01' and '"+mes+"-30'");
+                while (rs.next()) {
+                    pagosuma=pagosuma + rs.getInt("cantidad_pagar");
+                }
+                stmt.close();
+                rs.close();
+                conn.con.close();
+            } catch (Exception e) { System.out.println(e); }
+
+
+            totaladmin.setText(""+pagosuma);
+        }
     }//GEN-LAST:event_repMensBtnActionPerformed
 
     private void pdfdiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdfdiaActionPerformed
