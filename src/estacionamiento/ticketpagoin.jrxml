@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="283" pageHeight="425" columnWidth="243" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3272cbee-386c-44eb-ad88-12b8187aa89c">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechain" class="java.lang.String"/>
+	<parameter name="horain" class="java.lang.String"/>
+	<parameter name="fechaout" class="java.lang.String"/>
+	<parameter name="horaout" class="java.lang.String"/>
+	<parameter name="lugar" class="java.lang.String"/>
+	<parameter name="matricula" class="java.lang.String"/>
+	<parameter name="pago" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="385" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="243" height="20" uuid="19027c34-2e5c-4524-9b59-18c25c0e6430"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Algerian" size="14"/>
+				</textElement>
+				<text><![CDATA["EL RAYON"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="365" width="243" height="20" uuid="9343cdf8-0f4a-46d3-87a7-75c906646f0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Algerian" size="14"/>
+				</textElement>
+				<text><![CDATA["GRACIAS POR SU PREFERENCIA"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="44" width="243" height="20" uuid="a0e26ab5-052c-4faa-bd6a-edbe3889c040"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA Y HORA DE ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="107" width="243" height="20" uuid="c9501448-1539-4330-b5d1-25de04c0c58c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA Y HORA DE SALIDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="167" width="243" height="20" uuid="e5f8e436-7fb4-44c5-821b-3e41bbdb4b2c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[LUGAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="230" width="243" height="20" uuid="b33571ac-d8f7-4d40-8d06-3247f0c1690d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PLACA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="284" width="243" height="20" uuid="96e18e16-1db6-41de-93bd-de93af337fde"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="43" y="64" width="100" height="20" uuid="77ee75bd-62e4-4cf6-a526-4367b2880a0a"/>
+				<textFieldExpression><![CDATA[$P{fechain}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="64" width="100" height="20" uuid="16aab634-c231-4500-9ff7-aa962b3a1bd0"/>
+				<textFieldExpression><![CDATA[$P{horain}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="127" width="100" height="20" uuid="b2ca50a3-f5f5-4504-a24e-7524dc636902"/>
+				<textFieldExpression><![CDATA[$P{fechaout}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="127" width="100" height="20" uuid="76c92017-5f9c-47e8-9187-bb2a9f3f59a2"/>
+				<textFieldExpression><![CDATA[$P{horaout}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="187" width="100" height="20" uuid="b3cddd88-ae0d-4ba9-8a46-73ef0ee47181"/>
+				<textFieldExpression><![CDATA[$P{lugar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="250" width="100" height="20" uuid="aec6a9e6-81db-4d09-9c1c-e66b884db4bd"/>
+				<textFieldExpression><![CDATA[$P{matricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="304" width="100" height="20" uuid="a9cfd41f-7ce4-46ef-90ae-3e4776a8fd26"/>
+				<textFieldExpression><![CDATA[$P{pago}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="212" pageHeight="283" columnWidth="196" leftMargin="8" rightMargin="8" topMargin="8" bottomMargin="8" uuid="2c495544-5f35-4c9d-9798-40e7786e1476">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="entrada" class="java.lang.String"/>
+	<parameter name="salida" class="java.lang.String"/>
+	<parameter name="matricula" class="java.lang.String"/>
+	<parameter name="total" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<title>
+		<band height="294" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="196" height="27" uuid="8b7c7c3d-4e72-4700-9890-94d6561251e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lucida Calligraphy" size="16"/>
+				</textElement>
+				<text><![CDATA["EL RAYON"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="41" width="100" height="20" uuid="1390c614-d9a1-43a6-94ad-a96a300c63d4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[HORA DE ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="93" width="100" height="20" uuid="a1497ebd-7a1f-4c21-9f3c-da8b50d1677d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[HORA DE SALIDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="145" width="100" height="20" uuid="6ba98054-d659-4eee-b900-2033532b8310"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[MATRICULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="274" width="196" height="20" uuid="297d6cfd-4558-4ba1-b400-0301c7d00f3b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Algerian"/>
+				</textElement>
+				<text><![CDATA["GRACIAS POR SU PREFERENCIA"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="205" width="100" height="20" uuid="1b2c2fe4-4d54-48d7-818b-4a536083da5d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[TOTAL:  $]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="61" width="96" height="20" uuid="5b8853c2-ff16-4866-bc1e-ca6cbd939253"/>
+				<textFieldExpression><![CDATA[$P{entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="113" width="96" height="20" uuid="64c4c8ab-e8be-4f5b-8ca0-ad82446e8cb2"/>
+				<textFieldExpression><![CDATA[$P{salida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="165" width="96" height="20" uuid="194b0a78-b483-4fab-a7ab-4d55bac821af"/>
+				<textFieldExpression><![CDATA[$P{matricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="225" width="96" height="20" uuid="7c730a70-d333-4d8d-84ca-ac09bc4e6b3c"/>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>
