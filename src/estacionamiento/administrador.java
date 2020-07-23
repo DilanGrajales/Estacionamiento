@@ -53,7 +53,6 @@ public class administrador extends javax.swing.JFrame implements ActionListener{
         Calendar fecha1 = new GregorianCalendar();
         getreportedia.setCalendar(fecha1);
         getreportemes.setCalendar(fecha1);
-        
     }
 
     /**
